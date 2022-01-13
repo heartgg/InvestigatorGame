@@ -9,7 +9,7 @@ public class Interaction : MonoBehaviour
     [SerializeField] private Button inspect;
     [SerializeField] private Button talk;
     [SerializeField] private Button travel;
-    [SerializeField] private GameObject interactable;
+    [SerializeField] public GameObject interactable;
     public bool active;
     List<Button> buttons = new List<Button>();
     void Start()
@@ -67,6 +67,7 @@ public class Interaction : MonoBehaviour
 
     void Inspect () {
         Debug.Log("You have clicked the button!");
+        interactable.GetComponent<Interactable>().Selected(transform.position);
     }
 
     void Talk () {
